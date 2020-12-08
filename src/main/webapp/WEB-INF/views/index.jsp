@@ -2,23 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
-
-    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
-</head>
 <body>
 <jsp:include page="header.jsp"/>
 
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>13</em>
+            <em>${donationsCount.get()}</em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -26,7 +16,7 @@
         </div>
 
         <div class="stats--item">
-            <em>5</em>
+            <em>${donations.get()}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -85,29 +75,22 @@
 
         <ul class="help--slides-items">
             <li>
+                <c:forEach items="${institution}" var="sth" end="${institution.size()/2-1}">
                 <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
+                    <div class="title">Fundacja "${sth.getName()}"</div>
+                    <div class="subtitle">Cel i misja: ${sth.getDescription()}</div>
 
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
                 </div>
+                </c:forEach>
             </li>
-
             <li>
+                <c:forEach items="${institution}" var="sth" begin="${institution.size()/2}">
                 <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
+                        <div class="title">Fundacja "${sth.getName()}"</div>
+                        <div class="subtitle">Cel i misja: ${sth.getDescription()}</div>
                 </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
+                </c:forEach>
             </li>
-
         </ul>
     </div>
 
