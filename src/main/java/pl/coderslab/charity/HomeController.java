@@ -1,5 +1,6 @@
 package pl.coderslab.charity;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,9 @@ import pl.coderslab.charity.repository.DonationDao;
 import pl.coderslab.charity.repository.InstitutionDao;
 import pl.coderslab.charity.repository.UserDao;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,7 +75,36 @@ public class HomeController {
 
     @PostMapping("/register")
     public String registerPost(User user){
+        BCryptPasswordEncoder bCryptPasswordEncoder =
+                new BCryptPasswordEncoder(10, new SecureRandom());
+        String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         userDao.save(user);
         return "redirect:";
+    }
+    
+    @GetMapping("/login")
+    public String login(Model model){
+        model.addAttribute("user",new User());
+        return "login";
+    }
+    
+    @PostMapping("/login")
+    public String login(User user, HttpServletRequest request){
+        User userCheck = userDao.findByEmail(user.getEmail());
+        BCryptPasswordEncoder bCryptPasswordEncoder =
+                new BCryptPasswordEncoder(10, new SecureRandom());
+
+        if(userCheck.getEmail() == null){
+            return "redirect:/login";
+        }else{
+            User user1 = userDao.findByEmail(user.getEmail());
+            if(bCryptPasswordEncoder.matches(user.getPassword(),user1.getPassword())){
+                HttpSession session = request.getSession();
+                session.setAttribute("user_name", user1.getName());
+                return "redirect:";
+            }
+            return "login";
+        }
     }
 }
