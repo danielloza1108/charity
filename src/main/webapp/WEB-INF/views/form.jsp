@@ -18,6 +18,7 @@
 <script src="<c:url value="resources/js/app.js"/>"></script>
 
 
+
 <body>
 <header class="header--form-page">
     <nav class="container container--70">
@@ -216,7 +217,7 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
+                                >10 worki ubrań w dobrym stanie dla dzieci</span
                                 >
                             </li>
 
@@ -262,5 +263,5 @@
 
 <jsp:include page="footer.jsp"/>
 
-<script src="js/app.js"></script>
+
 </body>

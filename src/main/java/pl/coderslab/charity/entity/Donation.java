@@ -20,7 +20,7 @@ public class Donation {
     private Institution institution;
     private String street;
     private String city;
-    @Column(name = "zip_code")
+    @Column(name = "zip_code", columnDefinition = "char(6)")
     private String zipCode;
     @Column(name = "pick_up_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
