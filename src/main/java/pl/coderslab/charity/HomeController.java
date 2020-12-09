@@ -6,13 +6,12 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
+import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.repository.CategoryDao;
 import pl.coderslab.charity.repository.DonationDao;
 import pl.coderslab.charity.repository.InstitutionDao;
+import pl.coderslab.charity.repository.UserDao;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,11 +22,13 @@ public class HomeController {
     private final InstitutionDao institutionDao;
     private final DonationDao donationDao;
     private final CategoryDao categoryDao;
+    private final UserDao userDao;
 
-    public HomeController(InstitutionDao institutionDao, DonationDao donationDao, CategoryDao categoryDao) {
+    public HomeController(InstitutionDao institutionDao, DonationDao donationDao, CategoryDao categoryDao, UserDao userDao) {
         this.institutionDao = institutionDao;
         this.donationDao = donationDao;
         this.categoryDao = categoryDao;
+        this.userDao = userDao;
     }
 
     @RequestMapping("/")
@@ -60,5 +61,17 @@ public class HomeController {
     public String formPost(Donation donation){
         donationDao.save(donation);
         return "form";
+    }
+
+    @GetMapping("/register")
+    public String register(Model model){
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String registerPost(User user){
+        userDao.save(user);
+        return "redirect:";
     }
 }
