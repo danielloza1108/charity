@@ -195,7 +195,7 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <spring:bind path="donation.pickUpComment"><textarea name="pickUpComment" rows="5"></textarea></spring:bind>
+                                <spring:bind path="donation.pickUpComment"><textarea id="moreComment" name="pickUpComment" rows="5"></textarea></spring:bind>
                             </label>
                         </div>
                     </div>
@@ -216,16 +216,12 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >10 worki ubrań w dobrym stanie dla dzieci</span
-                                >
+                                <span class="summary--text">10 worki ubrań w dobrym stanie dla dzieci</span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
-                                >
+                                <span class="summary--text">Dla fundacji "Mam marzenie" w Warszawie</span>
                             </li>
                         </ul>
                     </div>
