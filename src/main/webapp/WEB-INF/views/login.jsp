@@ -8,20 +8,26 @@
 
 <section class="login-page">
     <h2>Zaloguj się</h2>
-    <form:form method="post" modelAttribute="user">
+    <form method="post" action="/login">
+
         <div class="form-group">
-            <form:input path="email" type="email" name="email" placeholder="Email" />
+            <input type="text" name="username" placeholder="Email" />
         </div>
         <div class="form-group">
-            <form:input path="password" type="password" name="password" placeholder="Hasło" />
+            <input type="password" name="password" placeholder="Hasło" />
             <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>
-
         <div class="form-group form-group--buttons">
             <a href="/register" class="btn btn--without-border">Załóż konto</a>
+            <c:if test="${not empty param.error}">
+                <h>Złe dane!</h>
+            </c:if>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <button class="btn" type="submit">Zaloguj się</button>
+
+
         </div>
-    </form:form>
+    </form>
 </section>
 
 <jsp:include page="footer.jsp"/>
