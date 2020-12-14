@@ -4,10 +4,11 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <body>
 <jsp:include page="header.jsp"/>
-
+<i id="myBtn" class="fas fa-arrow-alt-circle-up"></i>
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
+
             <em>${donationsCount.get()}</em>
 
             <h3>Oddanych worków</h3>
