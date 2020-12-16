@@ -106,7 +106,7 @@
         <h2>Skontaktuj się z nami</h2>
         <h3>Formularz kontaktowy</h3>
         <form class="form--contact" action="/message" method="post">
-            <div class="form-group form-group"><spring:bind path="message.email"><input type="text" name="email" placeholder="Email"/></spring:bind></div>
+            <div class="form-group form-group"><spring:bind path="message.email"><input type="email" name="email" placeholder="Email"/></spring:bind></div>
             <div class="form-group form-group--50"><spring:bind path="message.name"><input type="text" name="name" placeholder="Imię"/></spring:bind></div>
             <div class="form-group form-group--50"><spring:bind path="message.surname"><input type="text" name="surname" placeholder="Nazwisko"/></spring:bind></div>
 
