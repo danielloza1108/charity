@@ -11,7 +11,7 @@
     <form method="post" action="/login">
 
         <div class="form-group">
-            <input type="text" name="username" placeholder="Email" />
+            <spring:bind path="user.email"><input type="text" name="username" placeholder="Email" /></spring:bind>
         </div>
         <div class="form-group">
             <input type="password" name="password" placeholder="Hasło" />

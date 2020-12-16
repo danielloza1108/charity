@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <body>
 <jsp:include page="header.jsp"/>
 <i id="myBtn" class="fas fa-arrow-alt-circle-up"></i>
@@ -51,9 +52,12 @@
             <p>kurier przyjedzie w dogodnym terminie</p>
         </div>
     </div>
-
+    <sec:authorize access="isAnonymous()">
     <a href="/register" class="btn btn--large">Załóż konto</a>
+    </sec:authorize>
+    <sec:authorize access="isAuthenticated()">
     <a href="/form" class="btn btn--large">Złoż dotacje</a>
+    </sec:authorize>
 </section>
 
 <section class="about-us" id="about-us">
@@ -97,7 +101,29 @@
     </div>
 
 </section>
-<jsp:include page="footer.jsp"/>
+<footer>
+    <div class="contact" id="contact">
+        <h2>Skontaktuj się z nami</h2>
+        <h3>Formularz kontaktowy</h3>
+        <form class="form--contact" action="/message" method="post">
+            <div class="form-group form-group"><spring:bind path="message.email"><input type="text" name="email" placeholder="Email"/></spring:bind></div>
+            <div class="form-group form-group--50"><spring:bind path="message.name"><input type="text" name="name" placeholder="Imię"/></spring:bind></div>
+            <div class="form-group form-group--50"><spring:bind path="message.surname"><input type="text" name="surname" placeholder="Nazwisko"/></spring:bind></div>
+
+            <div class="form-group"><spring:bind path="message.message"><textarea name="message" placeholder="Wiadomość" rows="1"></textarea></spring:bind></div>
+
+            <button class="btn" type="submit">Wyślij</button>
+        </form>
+    </div>
+    <div class="bottom-line">
+        <span class="bottom-line--copy">Copyright &copy; 2018</span>
+        <div class="bottom-line--icons">
+            <a href="#" class="btn btn--small"><img src="<c:url value="resources/images/icon-facebook.svg"/>"/></a> <a href="#"
+                                                                                                                       class="btn btn--small"><img
+                src="<c:url value="resources/images/icon-instagram.svg"/>"/></a>
+        </div>
+    </div>
+</footer>
 <script src="<c:url value="resources/js/app.js"/>"></script>
 </body>
 </html>

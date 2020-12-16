@@ -197,7 +197,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         sth.children[1].lastElementChild.children[1].children[1].children[0].textContent = data;
                         sth.children[1].lastElementChild.children[1].children[1].children[1].textContent = time;
                         sth.children[1].lastElementChild.children[1].children[1].children[2].textContent = more;
-                        console.log("PODSUMOWANIE");
                     }
                 });
             });

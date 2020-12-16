@@ -5,4 +5,6 @@ import pl.coderslab.charity.entity.User;
 
 public interface UserDao extends JpaRepository<User,Long> {
     User findByEmail(String email);
+
+    User findByHash(String hash);
 }

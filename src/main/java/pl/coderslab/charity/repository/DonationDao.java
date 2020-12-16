@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import pl.coderslab.charity.entity.Donation;
+import pl.coderslab.charity.entity.User;
 
 import java.util.Optional;
 
@@ -16,4 +17,6 @@ public interface DonationDao extends JpaRepository<Donation,Long> {
     void addCategory(@Param("donation") Long donationId, @Param("category") Long categoryId);
     @Query(value = "select count(id) from donation;", nativeQuery = true)
     int donationCount();
+    @Query(value = "select * from donation where user_id= :id order by id desc limit 1;",nativeQuery = true)
+    Donation findByUser(@Param("id") Long userId);
 }

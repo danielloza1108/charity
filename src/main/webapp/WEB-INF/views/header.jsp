@@ -58,7 +58,12 @@
 
         <ul>
             <li><a href="/" class="btn btn--without-border active">Start</a></li>
+            <sec:authorize access="isAnonymous()">
             <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+            <li><a href="#steps" class="btn btn--without-border">Jak złożyć dotacje</a></li>
+            </sec:authorize>
             <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>
             <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
             <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>

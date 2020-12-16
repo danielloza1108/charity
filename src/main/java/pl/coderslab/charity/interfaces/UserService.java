@@ -5,6 +5,6 @@ import pl.coderslab.charity.entity.User;
 @Component
 public interface UserService {
     User findByUserName(String name);
-
+    void updateUser(User appuser);
     void saveUser(User appUser);
 }
