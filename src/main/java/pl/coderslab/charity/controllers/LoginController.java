@@ -9,8 +9,7 @@ import pl.coderslab.charity.entity.User;
 public class LoginController {
 
     @GetMapping("/login")
-    public String login(Model model){
-        model.addAttribute("user",new User());
+    public String login(){
         return "login";
     }
 }

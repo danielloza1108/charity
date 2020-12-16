@@ -2,6 +2,7 @@ package pl.coderslab.charity.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.classes.Message;
 import pl.coderslab.charity.entity.Institution;
@@ -14,7 +15,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
-
+@RequestMapping("/")
 @Controller
 public class HomeController {
     private final UserDao userDao;
@@ -27,7 +28,7 @@ public class HomeController {
         this.donationDao = donationDao;
     }
 
-    @RequestMapping("/")
+    @GetMapping()
     public String homeAction(Model model, Principal principal){
         model.addAttribute("message", new Message());
         if(principal != null){

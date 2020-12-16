@@ -15,9 +15,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
-<script src="<c:url value="resources/js/app.js"/>"></script>
+<script src="<c:url value="/resources/js/app.js"/>"></script>
 
 
 

@@ -450,7 +450,36 @@ h2 {
     text-align: center;
     font-size: 3.5rem;
 }
+.sth{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
+.userPanel{
+    width: 470px;
+    margin-bottom: 30px;
+    background: #f9c910;
+}
+.form-group.panel{
+    width: 400px;
+    flex-direction: column;
+    align-items: center;
+}
+.panelInput{
+    display: flex;
+    width: 100%;
+}
+.form--steps-container.panelInput form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto 150px auto ;
+}
+.btn.btn--small.formPanelButton{
+    top: 50%;
+    position: absolute;
+}
 /* line 20, scss/partials/_mixins.scss */
 h2:after {
     content: "";
@@ -885,7 +914,7 @@ form.form--contact textarea::placeholder {
 /* line 2, scss/modules/_header.scss */
 header.header--main-page {
     background-image: url(../images/header-bg.jpg);
-    background-position: bottom left -30vh;
+    background-position: bottom left -50vh;
     background-repeat: no-repeat;
     background-size: 70vw;
     height: 100vh;

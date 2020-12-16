@@ -54,7 +54,7 @@ public class RegisterController {
         context.setVariable("userEmail","http://localhost:8080/setRegister/"+user.getHash());
         String body = iTemplateEngine.process("template.html", context);
         emailService.prepareAndSend(user.getEmail(), "Podsumowanie", body);
-        return "redirect:";
+        return "redirect:/";
     }
 
     @GetMapping("/setRegister/{hash}")
