@@ -459,7 +459,7 @@ h2 {
 .error{
     color: firebrick;
     font-size: 15px;
-    margin-left: 40px;
+    align-items: center;
 }
 
 .userPanel{
@@ -475,6 +475,7 @@ h2 {
 .panelInput{
     display: flex;
     width: 100%;
+    margin-bottom: 20px;
 }
 .form--steps-container.panelInput form{
     display: flex;

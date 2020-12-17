@@ -49,7 +49,7 @@ public class ForgotPasswordController {
         context.setVariable("userEmail","http://localhost:8080/newPassword/"+byEmail.getHash());
         String body = iTemplateEngine.process("template.html", context);
         emailService.prepareAndSend(user.getEmail(), "Wiadomość", body);
-        return "redirect:/login";
+        return "newPasswordConfirm";
     }
 
     @GetMapping("/newPassword/{hash}")
@@ -67,6 +67,6 @@ public class ForgotPasswordController {
         }
         byHash.setPassword(bCryptPasswordEncoder.encode(passwordChange.getNewPassword()));
         userDao.save(byHash);
-        return "redirect:/login";
+        return "newPasswordConfirmFinal";
     }
 }

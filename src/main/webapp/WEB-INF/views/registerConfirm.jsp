@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -14,11 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <script src="<c:url value="/resources/js/app.js"/>"></script>
+
 
 
 <body>
@@ -52,7 +52,8 @@
     <div class="slogan container container--90">
         <div class="slogan--item sth">
             <h1>
-                Resetowanie hasła<br/>
+                Dziękujemy za rejestrację.<br/>
+                Na adres email wysłaliśmy link do aktywacji konta.
             </h1>
 
             <a href="/" class="btn btn--large userPanel">Strona głowna</a>
@@ -60,20 +61,9 @@
     </div>
 </header>
 
-<div class="form--steps-container panelInput">
-    <form:form cssClass="form--contact" method="post" modelAttribute="password">
-        <div class="panelInput">
-            <div class="form-group form-group panel">
-                <h2>Nowe hasło:</h2><form:input cssClass="panelInput" path="newPassword" placeholder="Wpisz nowe hasło"/>
-            </div>
-            <div class="form-group form-group panel">
-                <h2>Powtórz nowe hasło:</h2><form:input cssClass="panelInput" path="reNewPassword" placeholder="Powtórz hasło"/>
-            </div>
-        </div>
-        <button class="btn" type="submit">Zapisz</button>
+<section class="form--steps">
 
-    </form:form>
-</div>
+</section>
 
 <jsp:include page="footer.jsp"/>
 

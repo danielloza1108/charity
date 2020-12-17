@@ -23,7 +23,7 @@
             <form:input path="email" type="email" name="email" placeholder="Email" />
             <form:errors cssClass="error" path="email" element="div"/>
             <br/>
-            ${emailMessage}
+            <span class="error">${emailMessage}</span>
         </div>
         <div class="form-group">
             <form:input path="password" type="password" name="password" placeholder="Hasło" />

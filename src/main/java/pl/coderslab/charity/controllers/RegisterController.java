@@ -44,26 +44,30 @@ public class RegisterController {
     @PostMapping("/register")
     public String registerPost(@Valid User user, BindingResult result, Model model){
         User user1 = userDao.findByEmail(user.getEmail());
-        if(null != user1){
-            model.addAttribute("emailMessage","Podany email jest już zajęty");
-        }
         if(result.hasErrors()){
             return "/register";
         }
-        String hash = generate();
-        while (null != userDao.findByHash(hash)){
-            hash = generate();
+        if(user1 != null){
+            model.addAttribute("emailMessage","Podany email jest już zajęty");
+            return "/register";
+        }else {
+
+
+            String hash = generate();
+            while (null != userDao.findByHash(hash)) {
+                hash = generate();
+            }
+            user.setHash(hash);
+            userService.saveUser(user);
+            Context context = new Context();
+            context.setVariable("header", "Charity Fundation");
+            context.setVariable("title", "Potwierdzenie rejestracji");
+            context.setVariable("description", "Kliknij tutaj, aby potwierdzić konto.");
+            context.setVariable("userEmail", "http://localhost:8080/setRegister/" + user.getHash());
+            String body = iTemplateEngine.process("template.html", context);
+            emailService.prepareAndSend(user.getEmail(), "Podsumowanie", body);
+            return "registerConfirm";
         }
-        user.setHash(hash);
-        userService.saveUser(user);
-        Context context = new Context();
-        context.setVariable("header", "Charity Fundation");
-        context.setVariable("title", "Potwierdzenie rejestracji");
-        context.setVariable("description", "Kliknij tutaj, aby potwierdzić konto.");
-        context.setVariable("userEmail","http://localhost:8080/setRegister/"+user.getHash());
-        String body = iTemplateEngine.process("template.html", context);
-        emailService.prepareAndSend(user.getEmail(), "Podsumowanie", body);
-        return "redirect:/";
     }
 
     @GetMapping("/setRegister/{hash}")
@@ -71,7 +75,7 @@ public class RegisterController {
         User user = userDao.findByHash(hash);
         user.setEnable(true);
         userDao.save(user);
-        return "redirect:/";
+        return "registerConfirmFinal";
     }
 
     public String generate() {

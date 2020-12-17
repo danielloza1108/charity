@@ -52,11 +52,10 @@
     <div class="slogan container container--90">
         <div class="slogan--item sth">
             <h1>
-                Panel użytkownika<br/>
+                Resetownie hasła<br/>
             </h1>
 
             <a href="/" class="btn btn--large userPanel">Strona głowna</a>
-            <a href="/user/panel" class="btn btn--large userPanel">Panel użytkownika</a>
         </div>
     </div>
 </header>
@@ -65,7 +64,7 @@
     <form:form cssClass="form--contact" method="post" modelAttribute="user">
         <div class="panelInput">
             <div class="form-group form-group panel">
-                <h2>Email:</h2><form:input cssClass="panelInput" path="email"/>
+                <h2>Email:</h2><form:input cssClass="panelInput" path="email" placeholder="Podaj adres email"/>
             </div>
         </div>
         <button class="btn" type="submit">Wyślij email</button>
