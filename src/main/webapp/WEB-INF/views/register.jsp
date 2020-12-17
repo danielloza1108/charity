@@ -32,6 +32,8 @@
         </div>
         <div class="form-group">
             <input type="password" name="password2" placeholder="Powtórz hasło" />
+            <br/>
+            <span class="error">${passwordNotMatch}</span>
         </div>
 
         <div class="form-group--buttons">

@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.Context;
 import pl.coderslab.charity.classes.EmailService;
@@ -42,13 +43,21 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerPost(@Valid User user, BindingResult result, Model model){
+    public String registerPost(@Valid User user, BindingResult result, Model model, @RequestParam String password2){
         User user1 = userDao.findByEmail(user.getEmail());
+        if(!user.getPassword().equals(password2)){
+            model.addAttribute("passwordNotMatch","Hasła muszą być takie same");
+        }
+        if(user1 != null) {
+            model.addAttribute("emailMessage", "Podany email jest już zajęty");
+        }
         if(result.hasErrors()){
             return "/register";
         }
+        if(!user.getPassword().equals(password2)){
+            return "/register";
+        }
         if(user1 != null){
-            model.addAttribute("emailMessage","Podany email jest już zajęty");
             return "/register";
         }else {
 

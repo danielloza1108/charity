@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
@@ -22,6 +23,7 @@ public class User implements UserDetails {
     @NotEmpty(message = "Wypełnij to pole")
     private String email;
     @NotEmpty(message = "Wpełnij to pole")
+    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\_\\+\\-\\=])(?=.*[A-Z])(?!.*\\s).{8,}$", flags = Pattern.Flag.UNICODE_CASE, message = "Musi zawierać jedną: cyfrę, dużą literę, małą literę, znak specjalny oraz mieć co najmniej 8 znaków")
     private String password;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
