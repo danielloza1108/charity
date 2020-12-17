@@ -2,6 +2,7 @@ package pl.coderslab.charity.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import pl.coderslab.charity.interfaces.UserService;
 import pl.coderslab.charity.repository.DonationDao;
 import pl.coderslab.charity.repository.UserDao;
 
+import javax.validation.Valid;
 import java.util.Random;
 
 @Controller
@@ -40,7 +42,14 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerPost(User user){
+    public String registerPost(@Valid User user, BindingResult result, Model model){
+        User user1 = userDao.findByEmail(user.getEmail());
+        if(null != user1){
+            model.addAttribute("emailMessage","Podany email jest już zajęty");
+        }
+        if(result.hasErrors()){
+            return "/register";
+        }
         String hash = generate();
         while (null != userDao.findByHash(hash)){
             hash = generate();

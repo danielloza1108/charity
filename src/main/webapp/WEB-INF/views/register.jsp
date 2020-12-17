@@ -10,22 +10,31 @@
     <h2>Załóż konto</h2>
     <form:form modelAttribute="user" method="post">
         <div class="form-group">
-            <form:input path="name" type="text" name="name" placeholder="Name" />
+            <form:input path="name" type="text" name="name" placeholder="Imię" />
+            <br/>
+            <form:errors path="name" cssClass="error"/>
         </div>
         <div class="form-group">
-            <form:input path="surname" type="text" name="surname" placeholder="Surname" />
+            <form:input path="surname" type="text" name="surname" placeholder="Nazwisko" />
+            <br/>
+            <form:errors path="surname" cssClass="error"/>
         </div>
         <div class="form-group">
             <form:input path="email" type="email" name="email" placeholder="Email" />
+            <form:errors cssClass="error" path="email" element="div"/>
+            <br/>
+            ${emailMessage}
         </div>
         <div class="form-group">
             <form:input path="password" type="password" name="password" placeholder="Hasło" />
+            <br/>
+            <form:errors path="password" cssClass="error"/>
         </div>
         <div class="form-group">
             <input type="password" name="password2" placeholder="Powtórz hasło" />
         </div>
 
-        <div class="form-group form-group--buttons">
+        <div class="form-group--buttons">
             <a href="/login" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>

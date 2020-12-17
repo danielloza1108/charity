@@ -15,9 +15,9 @@
         </div>
         <div class="form-group">
             <input type="password" name="password" placeholder="Hasło" />
-            <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
+            <a href="/forgot" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>
-        <div class="form-group form-group--buttons">
+        <div class="form-group--buttons">
             <a href="/register" class="btn btn--without-border">Załóż konto</a>
             <c:if test="${not empty param.error}">
                 <h>Złe dane!</h>

@@ -456,6 +456,12 @@ h2 {
     align-items: center;
 
 }
+.error{
+    color: firebrick;
+    font-size: 15px;
+    margin-left: 40px;
+}
+
 .userPanel{
     width: 470px;
     margin-bottom: 30px;
@@ -590,6 +596,14 @@ form .form-group {
     margin-bottom: 20px;
 }
 
+div.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
 /* line 10, scss/modules/_forms.scss */
 form .form-group input:not([type="checkbox"]):not([type="radio"]),
 form .form-group textarea {
@@ -624,7 +638,8 @@ form .form-group--buttons {
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 /* line 39, scss/modules/_forms.scss */
