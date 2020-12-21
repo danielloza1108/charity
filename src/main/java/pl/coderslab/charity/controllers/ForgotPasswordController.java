@@ -40,8 +40,12 @@ public class ForgotPasswordController {
     }
 
     @PostMapping("/forgot")
-    public String sendEmail(User user){
+    public String sendEmail(User user, Model model){
         User byEmail = userDao.findByEmail(user.getEmail());
+        if(byEmail == null){
+            model.addAttribute("emailNotFound","Konto z tym adresem email nie istnieje.");
+            return "forgotPassword";
+        }
         Context context = new Context();
         context.setVariable("header", "Odzyskiwanie hasła");
         context.setVariable("title", "Odzyskiwanie hasła");

@@ -52,7 +52,7 @@
     <div class="slogan container container--90">
         <div class="slogan--item sth">
             <h1>
-                Resetownie hasła<br/>
+                Odzyskiwanie hasła<br/>
             </h1>
 
             <a href="/" class="btn btn--large userPanel">Strona głowna</a>
@@ -65,6 +65,8 @@
         <div class="panelInput">
             <div class="form-group form-group panel">
                 <h2>Email:</h2><form:input cssClass="panelInput" path="email" placeholder="Podaj adres email"/>
+                <br/>
+                <span class="error">${emailNotFound}</span>
             </div>
         </div>
         <button class="btn" type="submit">Wyślij email</button>

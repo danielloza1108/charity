@@ -39,8 +39,8 @@ public class HomeController {
         model.addAttribute("institution",institutions);
         Optional<Integer> numberOfDonations  = donationDao.counter();
         if(!numberOfDonations.isPresent()){
-            model.addAttribute("donationsCount",0);
-            model.addAttribute("donations",0);
+            model.addAttribute("donationsCount",Optional.of(0));
+            model.addAttribute("donations",Optional.of(0));
         }else {
             Optional<Integer> countOfDonations = donationDao.countOfDonations();
             model.addAttribute("donations", countOfDonations);
