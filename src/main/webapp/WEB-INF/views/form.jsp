@@ -121,7 +121,7 @@
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
                 <c:forEach items="${categories}" var="cat" varStatus="counter">
-                <div class="form-group form-group--checkbox">
+                <div class="form-group-donation form-group--checkbox">
                     <label>
                         <spring:bind path="donation.categories[${counter.index}]"><input type="checkbox" name="categories" value="${cat.getId()}"/></spring:bind>
                         <span class="checkbox"></span>
@@ -130,7 +130,7 @@
                 </div>
                 </c:forEach>
 
-                <div class="form-group form-group--buttons">
+                <div class="form-group form-group--buttons-donation">
                     <button type="button" class="btn next-step">Dalej</button>
                 </div>
             </div>
@@ -139,14 +139,14 @@
             <div data-step="2">
                 <h3>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h3>
 
-                <div class="form-group form-group--inline">
+                <div class="form-group-donation form-group--inline">
                     <label>
                         Liczba 60l worków:
                         <spring:bind path="donation.quantity"><input type="number" name="quantity" step="1" min="1" /></spring:bind>
                     </label>
                 </div>
 
-                <div class="form-group form-group--buttons">
+                <div class="form-group form-group--buttons-donation">
                     <button type="button" class="btn prev-step">Wstecz</button>
                     <button type="button" class="btn next-step">Dalej</button>
                 </div>
@@ -158,7 +158,7 @@
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
                 <c:forEach items="${institutions}" var="sth" >
-                <div class="form-group form-group--checkbox">
+                <div class="form-group-donation form-group--checkbox">
                     <label>
                         <spring:bind path="donation.institution.name"><input type="radio" name="institution" value="${sth.getId()}"/></spring:bind>
                         <span class="checkbox radio"></span>
@@ -171,7 +171,7 @@
                     </label>
                 </div>
                 </c:forEach>
-                <div class="form-group form-group--buttons">
+                <div class="form-group form-group--buttons-donation">
                     <button type="button" class="btn prev-step">Wstecz</button>
                     <button type="button" class="btn next-step">Dalej</button>
                 </div>
@@ -223,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group form-group--buttons">
+                <div class="form-group form-group--buttons-donation">
                     <button type="button" class="btn prev-step">Wstecz</button>
                     <button type="button" class="btn next-step">Dalej</button>
                 </div>
@@ -271,7 +271,7 @@
                     </div>
                 </div>
 
-                <div class="form-group form-group--buttons">
+                <div class="form-group form-group--buttons-donation">
                     <button type="button" class="btn prev-step">Wstecz</button>
                     <button type="submit" class="btn">Potwierdzam</button>
                 </div>

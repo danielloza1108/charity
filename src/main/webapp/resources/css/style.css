@@ -467,6 +467,7 @@ h2 {
     margin-bottom: 30px;
     background: #f9c910;
 }
+
 .form-group.panel{
     width: 400px;
     flex-direction: column;
@@ -602,6 +603,11 @@ div.form-group{
     flex-direction: column;
     align-items: center;
 }
+div.form-group-donation{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
 
 
 
@@ -641,6 +647,14 @@ form .form-group--buttons {
     -ms-flex-pack: justify;
     width: 100%;
     justify-content: space-evenly;
+}
+
+form .form-group--buttons-donation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-around;
 }
 
 /* line 39, scss/modules/_forms.scss */

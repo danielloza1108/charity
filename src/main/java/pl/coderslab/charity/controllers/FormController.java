@@ -74,8 +74,14 @@ public class FormController {
         context.setVariable("header", "Charity Fundation");
         context.setVariable("title", "Podsumowanie Dotacji");
         Donation donation = donationDao.findByUser(user.getId());
-        context.setVariable("description", new StringBuilder().append(donation.getQuantity()).append(" worków: "));
-        context.setVariable("userEmail","http://localhost:8080/setRegister/"+user.getHash());
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Category category : donation.getCategories()) {
+            stringBuilder.append(category.getName() + ", ");
+        }
+        String institution = donation.getInstitution().getName();
+        context.setVariable("description", new StringBuilder().append(donation.getQuantity()).append(" worków: ").append(stringBuilder).append("\n")
+                .append("Fundacja: " + institution));
+        context.setVariable("userEmail", "http://localhost:8080/setRegister/" + user.getHash());
         String body = iTemplateEngine.process("template.html", context);
         emailService.prepareAndSend(user.getEmail(), "Podsumowanie", body);
         return "formConfirm";
