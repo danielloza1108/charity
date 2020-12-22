@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface DonationDao extends JpaRepository<Donation,Long> {
@@ -19,4 +20,6 @@ public interface DonationDao extends JpaRepository<Donation,Long> {
     int donationCount();
     @Query(value = "select * from donation where user_id= :id order by id desc limit 1;",nativeQuery = true)
     Donation findByUser(@Param("id") Long userId);
+    @Query(value = "select * from donation where user_id= :id order by id", nativeQuery = true)
+    List<Donation> findDonationsByUserId(@Param("id") Long userId);
 }

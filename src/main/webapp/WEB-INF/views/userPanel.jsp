@@ -32,7 +32,7 @@
                         Witaj ${name}
                         <ul class="dropdown">
                             <li><a href="/user/panel">Profil</a></li>
-                            <li><a href="#">Moje zbiórki</a></li>
+                            <li><a href="/user/donations">Moje zbiórki</a></li>
                             <li><sec:authorize access="isAuthenticated()">
                                 <a href="<c:url value="/logout" />">Logout</a>
                             </sec:authorize></li>

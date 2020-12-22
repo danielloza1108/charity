@@ -609,7 +609,52 @@ div.form-group-donation{
     margin: 20px;
 }
 
+table.donationTable {
+    border: 1px solid #EC9C00;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+table.donationTable td, table.donationTable th {
+    border: 1px solid #AAAAAA;
+    padding: 3px 2px;
+}
+table.donationTable tbody td {
+    font-size: 13px;
+}
+table.donationTable tr:nth-child(even) {
+    background: #FFF485;
+}
+table.donationTable thead {
+    background: #FFC301;
+    border-bottom: 2px solid #444444;
+}
+table.donationTable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-left: 2px solid #F5F5F5;
+    text-align: center;
+}
+table.donationTable thead th:first-child {
+    border-left: none;
+}
 
+table.donationTable tfoot td {
+    font-size: 14px;
+}
+table.donationTable tfoot .links {
+    text-align: right;
+}
+table.donationTable tfoot .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
 
 /* line 10, scss/modules/_forms.scss */
 form .form-group input:not([type="checkbox"]):not([type="radio"]),
